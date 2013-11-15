@@ -1,5 +1,21 @@
-/* fonts */
+/* mixins */
+border-box()
+	-webkit-box-sizing border-box
+	-moz-box-sizing border-box
+	box-sizing border-box
 
+gradient(startColor, endColor)
+	background startColor
+	background -moz-linear-gradient(top,  startColor 0%, endColor 100%) /* FF3.6+ */
+	background -webkit-gradient(linear, left top, left bottom, color-stop(0%,startColor), color-stop(100%,endColor)) /* Chrome,Safari4+ */
+	background -webkit-linear-gradient(top,  startColor 0%,endColor 100%) /* Chrome10+,Safari5.1+ */
+	background -o-linear-gradient(top,  startColor 0%,endColor 100%) /* Opera 11.10+ */
+	background -ms-linear-gradient(top,  startColor 0%,endColor 100%) /* IE10+ */
+	background linear-gradient(to bottom,  startColor 0%,endColor 100%) /* W3C */
+
+
+
+/* fonts */
 @font-face {
     font-family: 'DISCORegular';
     src: url('../fonts/DISCO___-webfont.eot');
@@ -11,143 +27,293 @@
     font-style: normal;
 }
 
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot');
+	src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf') format('truetype'),
+		url('../fonts/icomoon.woff') format('woff'),
+		url('../fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+/*
+.icon-brush:before {
+	content: "\e600";
+}
+.icon-mail:before {
+	content: "\e601";
+}
+.icon-house:before {
+	content: "\e602";
+}
+.icon-facebook:before {
+	content: "\e603";
+}
+.icon-skype:before {
+	content: "\e604";
+}
+.icon-twitter:before {
+	content: "\e605";
+}
+.icon-vcard:before {
+	content: "\e606";
+}
+.icon-phone:before {
+	content: "\e607";
+}
+.icon-box:before {
+	content: "\e608";
+}
+.icon-pictures:before {
+	content: "\e609";
+}
+*/
+
+
 /* variables */
 
-font_disco = 'DISCORegular'
-color_nav = #000
-color_nav_bg = lighten(color_nav, 70%)
-color_input_border = #999
+font_disco = 'DISCORegular', sans-serif
+
+color_gris_neutro = #999
+color_azul_oscuro = #3B4250
+color_verde = #68CAB6
+color_amarillo = #FBB168
+color_rosa = #E17695
+color_violeta = #A285C5
 
 /* styles */
 body
-	font 100%/1.5em 'Helvetica Neue', Arial, sans-serif
-
+	font 100%/1.5em 'Roboto', sans-serif
+	margin 0
+	min-width 310px
 
 footer
-	.copyright
-		font-size .85em
-		text-align center;
+	background color_azul_oscuro
+	color white
+	font-size 0.8em
+	padding 1.5em
+	text-align center
+	text-shadow rgba(0,0,0,0.5) 1px 1px 2px
 
 header
+	background color_azul_oscuro
+	overflow hidden
+	.logo
+	.text
+		margin-top 0.625em
 
 	.logo
-		text-align center
+		float left
+		margin-left 0.625em
+		width 73px
+	
+	.text
+		color white
+		font-family font_disco
+		float left
+		position relative
+		top .9em
+
+		h1
+			font-size 2.5em
+			letter-spacing -.15em
+			margin 0
+		h2
+			font-size .8em
+			margin 0
+			padding-left .4em
 
 	nav
-		font-family font_disco
-		font-size 1.4em
-		text-transform uppercase
+		clear both
+		height 93px
+		line-height 93px
+		margin-top 90px
 
 		ul
-			list-style none
 			margin 0
 			padding 0
-
-			li
-				a
-					background color_nav_bg
-					border-radius 0.3125em
-					color color_nav
-					display block
-					font-weight bold
-					margin 0.3125em 0.625em
-					padding: .2em .4em
-					text-align center
-					text-decoration none
-
-/* sections */
-.home
-	.profile
-		box-shadow 0 0 0.625em rgba(0,0,0,0.5)
-		margin 0.625em auto
-		padding 0.1em
-		float left
-		margin 0 15px 15px 0
-
-	p
-		font-size .9em
-
-.works
-	margin 0 auto
-
-	.work
-		box-shadow 0 0 0.625em rgba(0,0,0,0.5)
-		box-sizing border-box
-		display inline-block
-		margin 1%
-		padding 0.1em
-		text-align center
-		width 47%
-
-		img
-			max-width 100%
-			display block
-
-.contact
-	form
-		label
-			display block
-		input
-		textarea
-			display block
-			box-sizing border-box
-			padding .45em
 			width 100%
 
-		input[type=submit]
-			width auto
+			li
+				border-box()
+				display inline-block
+				list-style none
+				width 25%
+				border-left 1px solid white
 
-		textarea
-			resize none
-			height 3em
+				a
+					color white
+					display block
+					text-align center
+					text-decoration none
+					text-shadow rgba(0,0,0,0.5) 1px 1px 2px
+				
+					.icon
+						font-family 'icomoon'
+						font-size 1.6em
+						color white
+
+
+					.label
+						display none
+
+				&.about
+					background color_verde
+					.icon:before
+						content "\e606"
+				&.paint
+					background color_amarillo
+					.icon:before
+						content "\e609"
+				&.crafts
+					background color_rosa
+					.icon:before
+						content "\e608"
+				&.contact
+					background color_violeta
+					.icon:before
+						content "\e601"
+			
+				&:first-child
+					border-left none
+.section
+	position relative
+
+	&:before
+		content ""
+		position absolute
+		top 0
+		left 0
+		width 100%
+		height 30px
+		gradient(rgba(0,0,0,0.1), rgba(0,0,0,0))
+		z-index 1
+
+	.wrapper
+		padding 1em
+		position relative
+		overflow hidden
+		z-index 2
+
+		h3
+			margin 0
+			text-align center
+
+	&:first-child
+		border-top none
+
+
+/* section specific styles */
+#about
+	background lighten(color_verde, 85%)
+	.picture
+		display inline-block
+		float left
+		margin 0 1em 1em 0
+		vertical-align top
+
+
+	p
+		margin 0
+		vertical-align top
+
+#paint
+	background lighten(color_amarillo, 75%)
+
+.work
+	border-box()
+	display inline-block
+	padding 0.625em
+	width 50%
+	float left
+
+	img
+		display block
+		max-width 100%
+
+#crafts
+	background lighten(color_rosa, 75%)
+
+#contact
+	background lighten(color_violeta, 55%)
 
 /* media queries */
 
-@media screen and (min-width: 500px)
+@media screen and (min-width: 532px)
+
+	.work
+		width 33.3333%
+
+
+@media screen and (min-width: 750px)
 	
 	header
 		nav
-			font-size .6em
-			text-align center
-			margin .8em auto 1.5em
+			clear none
+			line-height normal
+			margin 0
+			float right
 
-			li
-				display inline-block
-				width 24%
+			ul
+				li
+					width auto
+					a
+						height 93px
+						position relative
+						width 93px
+						box-shadow none
+						transition box-shadow 0.3s ease
 
-	.works
-		.work
-			width 31%
-			margin .9%
+						.icon
+						.label
+							left 0
+							position absolute
+							width 100%
 
+						.icon
+							display block
+							top 25px
 
+						.label
+							bottom 20px
+							display block
+							font-size .75em
+							text-transform uppercase
 
-@media screen and (min-width: 778px)
+						&:hover
+							box-shadow inset 0 0 30px rgba(0,0,0,0.3)
 
-	header
-		nav
-			font-size 1em
-
-	.contact
-		.leftcol
-		.rightcol
-			vertical-align top
-			width 48%
-			display inline-block
-
-			&:nth-child(odd)
-				margin-right 2%
-
-
+	.section
+		.wrapper
+			h3
+				color rgba(0,0,0,0.3)
+				font-size 3em
+				font-weight bold
+				letter-spacing -0.08em
+				margin 0 0 0.4em
+				text-align left
+				transition color 0.3s ease
+		&:hover
+			.wrapper
+				h3
+					color rgba(0,0,0,0.5)
 
 @media screen and (min-width: 900px)
+	
 
-	.works
-		.work
-			width 23%
-			margin 0.5%
+
+	.work
+		width 25%
+
+@media screen and (min-width: 960px)
 
 	.wrapper
-		max-width 960px
 		margin-left auto
 		margin-right auto
+		max-width 960px
+
+
+			

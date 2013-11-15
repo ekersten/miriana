@@ -1,25 +1,51 @@
 @font-face{font-family:'DISCORegular';src:url("../fonts/DISCO___-webfont.eot");src:url("../fonts/DISCO___-webfont.eot?#iefix") format('embedded-opentype'),url("../fonts/DISCO___-webfont.woff") format('woff'),url("../fonts/DISCO___-webfont.ttf") format('truetype'),url("../fonts/DISCO___-webfont.svg#DISCORegular") format('svg');font-weight:normal;font-style:normal}
-body{font:100%/1.5em 'Helvetica Neue',Arial,sans-serif}
-footer .copyright{font-size:.85em;text-align:center}
-header .logo{text-align:center}
-header nav{font-family:'DISCORegular';font-size:1.4em;text-transform:uppercase;}
-header nav ul{list-style:none;margin:0;padding:0;}
-header nav ul li a{background:#b3b3b3;border-radius:.3125em;color:#000;display:block;font-weight:bold;margin:.3125em .625em;padding:.2em .4em;text-align:center;text-decoration:none}
-.home .profile{box-shadow:0 0 .625em rgba(0,0,0,0.5);margin:.625em auto;padding:.1em;float:left;margin:0 15px 15px 0}
-.home p{font-size:.9em}
-.works{margin:0 auto;}
-.works .work{box-shadow:0 0 .625em rgba(0,0,0,0.5);box-sizing:border-box;display:inline-block;margin:1%;padding:.1em;text-align:center;width:47%;}
-.works .work img{max-width:100%;display:block}
-.contact form label{display:block}
-.contact form input,.contact form textarea{display:block;box-sizing:border-box;padding:.45em;width:100%}
-.contact form input[type=submit]{width:auto}
-.contact form textarea{resize:none;height:3em}
-@media screen and (min-width: 500px){header nav{font-size:.6em;text-align:center;margin:.8em auto 1.5em;}
-header nav li{display:inline-block;width:24%}
-.works .work{width:31%;margin:.9%}
-}@media screen and (min-width: 778px){header nav{font-size:1em}
-.contact .leftcol,.contact .rightcol{vertical-align:top;width:48%;display:inline-block;}
-.contact .leftcol:nth-child(odd),.contact .rightcol:nth-child(odd){margin-right:2%}
-}@media screen and (min-width: 900px){.works .work{width:23%;margin:.5%}
-.wrapper{max-width:960px;margin-left:auto;margin-right:auto}
+@font-face{font-family:'icomoon';src:url("../fonts/icomoon.eot");src:url("../fonts/icomoon.eot?#iefix") format('embedded-opentype'),url("../fonts/icomoon.ttf") format('truetype'),url("../fonts/icomoon.woff") format('woff'),url("../fonts/icomoon.svg#icomoon") format('svg');font-weight:normal;font-style:normal}
+body{font:100%/1.5em 'Roboto',sans-serif;margin:0;min-width:310px}
+footer{background:#3b4250;color:#fff;font-size:.8em;padding:1.5em;text-align:center;text-shadow:rgba(0,0,0,0.5) 1px 1px 2px}
+header{background:#3b4250;overflow:hidden;}
+header .logo,header .text{margin-top:.625em}
+header .logo{float:left;margin-left:.625em;width:73px}
+header .text{color:#fff;font-family:'DISCORegular',sans-serif;float:left;position:relative;top:.9em;}
+header .text h1{font-size:2.5em;letter-spacing:-.15em;margin:0}
+header .text h2{font-size:.8em;margin:0;padding-left:.4em}
+header nav{clear:both;height:93px;line-height:93px;margin-top:90px;}
+header nav ul{margin:0;padding:0;width:100%;}
+header nav ul li{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:inline-block;list-style:none;width:25%;border-left:1px solid #fff;}
+header nav ul li a{color:#fff;display:block;text-align:center;text-decoration:none;text-shadow:rgba(0,0,0,0.5) 1px 1px 2px;}
+header nav ul li a .icon{font-family:'icomoon';font-size:1.6em;color:#fff}
+header nav ul li a .label{display:none}
+header nav ul li.about{background:#68cab6;}
+header nav ul li.about .icon:before{content:"\e606"}
+header nav ul li.paint{background:#fbb168;}
+header nav ul li.paint .icon:before{content:"\e609"}
+header nav ul li.crafts{background:#e17695;}
+header nav ul li.crafts .icon:before{content:"\e608"}
+header nav ul li.contact{background:#a285c5;}
+header nav ul li.contact .icon:before{content:"\e601"}
+header nav ul li:first-child{border-left:none}
+.section{position:relative;}
+.section:before{content:"";position:absolute;top:0;left:0;width:100%;height:30px;background:rgba(0,0,0,0.1);background:-moz-linear-gradient(top,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,0.1)),color-stop(100%,rgba(0,0,0,0)));background:-webkit-linear-gradient(top,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%);background:-o-linear-gradient(top,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%);background:-ms-linear-gradient(top,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%);background:linear-gradient(to bottom,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%);z-index:1}
+.section .wrapper{padding:1em;position:relative;overflow:hidden;z-index:2;}
+.section .wrapper h3{margin:0;text-align:center}
+.section:first-child{border-top:none}
+#about{background:#e8f7f4;}
+#about .picture{display:inline-block;float:left;margin:0 1em 1em 0;vertical-align:top}
+#about p{margin:0;vertical-align:top}
+#paint{background:#feecd9}
+.work{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:inline-block;padding:.625em;width:50%;float:left;}
+.work img{display:block;max-width:100%}
+#crafts{background:#f8dde4}
+#contact{background:#d5c8e5}
+@media screen and (min-width: 532px){.work{width:33.3333%}
+}@media screen and (min-width: 750px){header nav{clear:none;line-height:normal;margin:0;float:right;}
+header nav ul li{width:auto;}
+header nav ul li a{height:93px;position:relative;width:93px;box-shadow:none;transition:box-shadow .3s ease;}
+header nav ul li a .icon,header nav ul li a .label{left:0;position:absolute;width:100%}
+header nav ul li a .icon{display:block;top:25px}
+header nav ul li a .label{bottom:20px;display:block;font-size:.75em;text-transform:uppercase}
+header nav ul li a:hover{box-shadow:inset 0 0 30px rgba(0,0,0,0.3)}
+.section .wrapper h3{color:rgba(0,0,0,0.3);font-size:3em;font-weight:bold;letter-spacing:-.08em;margin:0 0 .4em;text-align:left;transition:color .3s ease}
+.section:hover .wrapper h3{color:rgba(0,0,0,0.5)}
+}@media screen and (min-width: 900px){.work{width:25%}
+}@media screen and (min-width: 960px){.wrapper{margin-left:auto;margin-right:auto;max-width:960px}
 }
