@@ -361,6 +361,46 @@ header
 						content ' *'
 						font-weight bold
 						color darken(red, 10%)
+	
+	.other
+		ul
+			margin 0
+			padding 0
+
+			li
+				list-style none
+
+				a
+					color color_azul_oscuro
+					text-decoration none
+					font-weight bold
+
+					&:hover
+						text-decoration underline
+
+				&:before
+					color color_azul_oscuro
+					font-family 'icomoon'
+					font-size 1.1em
+					margin-right 0.5em
+					position relative
+					top 0.2em
+
+				
+				&.facebook:before
+					content '\e603'
+
+				&.twitter:before
+					content '\e605'
+
+				&.skype:before
+					content '\e604'
+
+				&.email:before
+					content '\e601'
+
+				&.tel:before
+					content '\e607'
 
 /* media queries */
 
@@ -378,6 +418,15 @@ header
 	.work
 		width 33.3333%
 
+
+@media screen and (min-width: 560px)
+
+	#contact
+		.column
+			border-box()
+			float left
+			padding 1em
+			width 50%
 
 
 @media screen and (min-width: 750px)
