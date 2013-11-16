@@ -37,7 +37,7 @@ header nav ul li:first-child{border-left:none}
 #about p{margin:0;vertical-align:top}
 #paint{background:#feecd9 url("../img/bg.png")}
 .work{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:inline-block;padding:.625em;width:50%;float:left;}
-.work .container{background:#fff;border-radius:.325em;box-shadow:0 0 10px rgba(0,0,0,0.15) url("../img/bg.png");overflow:hidden;padding:.6em .6em 0;}
+.work .container{background:#fff;border-radius:.325em;box-shadow:0 0 10px rgba(0,0,0,0.2);overflow:hidden;padding:.6em .6em 0;}
 .work .container a{color:#3b4250;text-decoration:none}
 .work .container img{display:block;max-width:100%}
 .work .container .name,.work .container .details{margin-top:.2em}
