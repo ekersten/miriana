@@ -26,6 +26,9 @@ header nav ul li:first-child{border-left:none}
 .section{position:relative;}
 .section:before{content:"";position:absolute;top:0;left:0;width:100%;height:30px;background:rgba(0,0,0,0.1);background:-moz-linear-gradient(top,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,0.1)),color-stop(100%,rgba(0,0,0,0)));background:-webkit-linear-gradient(top,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%);background:-o-linear-gradient(top,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%);background:-ms-linear-gradient(top,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%);background:linear-gradient(to bottom,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%);z-index:1}
 .section:after{content:"";position:absolute;bottom:0;left:0;width:100%;height:30px;background:rgba(0,0,0,0);background:-moz-linear-gradient(top,rgba(0,0,0,0) 0%,rgba(0,0,0,0.1) 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,0)),color-stop(100%,rgba(0,0,0,0.1)));background:-webkit-linear-gradient(top,rgba(0,0,0,0) 0%,rgba(0,0,0,0.1) 100%);background:-o-linear-gradient(top,rgba(0,0,0,0) 0%,rgba(0,0,0,0.1) 100%);background:-ms-linear-gradient(top,rgba(0,0,0,0) 0%,rgba(0,0,0,0.1) 100%);background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,0.1) 100%);z-index:1}
+.section .top{background:rgba(0,0,0,0.3);color:#fff;font-weight:bold;padding:.2em .6em;position:absolute;right:1em;top:1em;text-decoration:none;text-transform:uppercase;transition:background .3s ease;}
+.section .top span:before{font-family:'icomoon';content:'\e60b'}
+.section .top:hover{background:rgba(0,0,0,0.5)}
 .section .wrapper{padding:1em;position:relative;overflow:hidden;z-index:2;}
 .section .wrapper h3{color:rgba(0,0,0,0.6);font-size:3em;font-weight:bold;letter-spacing:-.04em;margin:.1em 0 .45em;text-align:left}
 .section:first-child{border-top:none}

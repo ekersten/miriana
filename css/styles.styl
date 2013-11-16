@@ -73,6 +73,9 @@ gradient(startColor, endColor)
 .icon-user:before {
 	content: "\e60a";
 }
+.icon-arrow-up:before {
+	content: "\e60b";
+}
 */
 
 
@@ -205,6 +208,28 @@ header
 		height 30px
 		gradient(rgba(0,0,0,0), rgba(0,0,0,0.1))
 		z-index 1
+	
+	.top
+		background rgba(0,0,0,0.3)
+		color white
+		font-weight bold
+		padding .2em .6em
+		position absolute
+		right 1em
+		top 1em
+		text-decoration none
+		text-transform uppercase
+
+		transition background 0.3s ease
+
+		span
+			&:before
+				font-family 'icomoon'
+				content '\e60b'
+
+		&:hover
+			background rgba(0,0,0,0.5)
+
 
 	.wrapper
 		padding 1em
