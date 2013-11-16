@@ -58,9 +58,6 @@ gradient(startColor, endColor)
 .icon-twitter:before {
 	content: "\e605";
 }
-.icon-vcard:before {
-	content: "\e606";
-}
 .icon-phone:before {
 	content: "\e607";
 }
@@ -69,6 +66,12 @@ gradient(startColor, endColor)
 }
 .icon-pictures:before {
 	content: "\e609";
+}
+.icon-search:before {
+	content: "\e606";
+}
+.icon-user:before {
+	content: "\e60a";
 }
 */
 
@@ -114,6 +117,7 @@ header
 		color white
 		font-family font_disco
 		float left
+		margin-left 0.625em
 		position relative
 		top .9em
 
@@ -163,7 +167,7 @@ header
 				&.about
 					background color_verde
 					.icon:before
-						content "\e606"
+						content "\e60a"
 				&.paint
 					background color_amarillo
 					.icon:before
@@ -192,6 +196,16 @@ header
 		gradient(rgba(0,0,0,0.1), rgba(0,0,0,0))
 		z-index 1
 
+	&:after
+		content ""
+		position absolute
+		bottom 0
+		left 0
+		width 100%
+		height 30px
+		gradient(rgba(0,0,0,0), rgba(0,0,0,0.1))
+		z-index 1
+
 	.wrapper
 		padding 1em
 		position relative
@@ -199,8 +213,12 @@ header
 		z-index 2
 
 		h3
-			margin 0
-			text-align center
+			color rgba(0,0,0,0.6)
+			font-size 3em
+			font-weight bold
+			letter-spacing -0.04em
+			margin .1em 0 .45em
+			text-align left
 
 	&:first-child
 		border-top none
@@ -208,12 +226,13 @@ header
 
 /* section specific styles */
 #about
-	background lighten(color_verde, 85%)
+	background lighten(color_verde, 85%) url("../img/bg.png")
 	.picture
 		display inline-block
 		float left
 		margin 0 1em 1em 0
 		vertical-align top
+		width 150px
 
 
 	p
@@ -221,7 +240,7 @@ header
 		vertical-align top
 
 #paint
-	background lighten(color_amarillo, 75%)
+	background lighten(color_amarillo, 75%) url("../img/bg.png")
 
 .work
 	border-box()
@@ -229,23 +248,111 @@ header
 	padding 0.625em
 	width 50%
 	float left
+	
+	.container
+		background white
+		border-radius 0.325em
+		box-shadow 0 0 10px rgba(0,0,0,0.15) url("../img/bg.png")
+		overflow hidden
+		padding .6em .6em 0;
+		
+		a
+			color color_azul_oscuro
+			text-decoration none
 
-	img
-		display block
-		max-width 100%
+
+		img
+			display block
+			max-width 100%
+		
+		.name
+		.details
+			margin-top 0.2em
+			
+
+		.name
+			float left
+			font-weight bold
+			font-size 0.5em
+			text-transform uppercase
+
+		.details
+			float right
+			&:before
+				content "\e606"
+				font-family 'icomoon'
+
 
 #crafts
-	background lighten(color_rosa, 75%)
+	background lighten(color_rosa, 75%) url("../img/bg.png")
 
 #contact
-	background lighten(color_violeta, 55%)
+	background lighten(color_violeta, 55%) url("../img/bg.png")
+
+	form
+		p
+			label
+				display block
+
+			.field
+				background rgba(255,255,255,0.5)
+				border-box()
+				border-radius 0.25em
+				border 1px solid rgba(0,0,0,0.3)
+				display block
+				font-family 'Roboto', sans-serif
+				padding .3em
+				width 100%
+
+			.textarea
+				height 60px
+				resize none
+
+			
+			.submit
+				background color_violeta
+				border-radius 0.25em
+				border none
+				box-shadow 0 0.325em 0 0 darken(color_violeta, 20%)
+				color white
+				font-family 'Roboto', sans-serif
+				padding 1em 1.5em
+				text-transform uppercase
+				position relative
+
+				transition all 0.2s ease
+
+				&:active
+					box-shadow 0 0 0 0 darken(color_violeta, 20%)
+					top 0.325em
+
+				&:focus
+					outline none
+
+
+			&.required
+				label
+					&:after
+						content ' *'
+						font-weight bold
+						color darken(red, 10%)
 
 /* media queries */
+
+@media screen and (min-width: 400px)
+	
+	.work
+		.container
+			.name
+				font-size .7em
+
+
 
 @media screen and (min-width: 532px)
 
 	.work
 		width 33.3333%
+
 
 
 @media screen and (min-width: 750px)
@@ -303,10 +410,13 @@ header
 
 @media screen and (min-width: 900px)
 	
-
-
 	.work
 		width 25%
+		.container
+			transition box-shadow 0.3s ease
+		&:hover
+			.container
+				box-shadow 0 0 10px rgba(0,0,0,0.45)
 
 @media screen and (min-width: 960px)
 
