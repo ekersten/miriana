@@ -49,7 +49,7 @@ header nav ul li:first-child{border-left:none}
 #contact form p label{display:block}
 #contact form p .field{background:rgba(255,255,255,0.5);-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;border-radius:.25em;border:1px solid rgba(0,0,0,0.3);display:block;font-family:'Roboto',sans-serif;padding:.3em;width:100%}
 #contact form p .textarea{height:60px;resize:none}
-#contact form p .submit{background:#a285c5;border-radius:.25em;border:none;box-shadow:0 .325em 0 0 #8058b0;color:#fff;font-family:'Roboto',sans-serif;padding:1em 1.5em;text-transform:uppercase;position:relative;transition:all .2s ease;}
+#contact form p .submit{background:#a285c5;border-radius:.25em;border:none;box-shadow:0 .325em 0 0 #8058b0;color:#fff;font-family:'Roboto',sans-serif;padding:1em 1.5em;text-transform:uppercase;position:relative;transition:all .3s ease;}
 #contact form p .submit:active{box-shadow:0 0 0 0 #8058b0;top:.325em}
 #contact form p .submit:focus{outline:none}
 #contact form p.required label:after{content:' *';font-weight:bold;color:#e60000}

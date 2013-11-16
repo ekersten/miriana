@@ -34,7 +34,7 @@
 	function scrollHandler(e) {
 		var scrollPos = $(window).scrollTop();
 		$('section.section').each(function(index, item) {
-			if (scrollPos >= $(item).offset().top - 100 && scrollPos > 0) {
+			if (scrollPos >= $(item).offset().top - 100 && scrollPos > 0 || $(item).attr('id') == 'contact') {
 				$(item).find('.top').fadeIn();
 			} else {
 				$(item).find('.top').fadeOut();
