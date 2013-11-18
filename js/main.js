@@ -6,6 +6,24 @@
 
 	resizeHandler(null);
 
+	
+	$('.work .container a').fancybox({
+		maxWidth	: 300,
+		maxHeight	: 533,
+		fitToView	: false,
+		width		: '90%',
+		height		: '90%',
+		autoSize	: false,
+		closeClick	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none',
+		type		: 'ajax',
+		helpers 	: {
+            title	: null
+        }
+	});
+	
+
 	function clickNav(e) {
 		e.preventDefault();
 
@@ -18,13 +36,13 @@
 	function clickTop(e) {
 		$('html, body').animate({
 			scrollTop: 0,
-		}, 1500);		
+		}, 1500);
 	}
 
 	function resizeHandler(e) {
 		if($(window).width() >= 750) {
 			$('.top').hide();
-			$(window).on('scroll', scrollHandler);		
+			$(window).on('scroll', scrollHandler);
 		} else {
 			$('.top').fadeIn();
 			$(window).off('scroll', scrollHandler);

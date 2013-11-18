@@ -63,6 +63,7 @@ header nav ul li:first-child{border-left:none}
 #contact .other ul li.skype:before{content:'\e604'}
 #contact .other ul li.email:before{content:'\e601'}
 #contact .other ul li.tel:before{content:'\e607'}
+.fancybox-inner .picture img{display:block;max-width:100%}
 @media screen and (min-width: 400px){.work .container .name{font-size:.7em}
 }@media screen and (min-width: 532px){.work{width:33.3333%}
 }@media screen and (min-width: 560px){#contact .column{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;float:left;padding:1em;width:50%}
