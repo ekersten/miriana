@@ -34,7 +34,7 @@ header nav ul li:first-child{border-left:none}
 .section:first-child{border-top:none}
 #about{background:#e8f7f4 url("../img/bg.png");}
 #about .picture{display:inline-block;float:left;margin:0 1em 1em 0;vertical-align:top;width:150px}
-#about p{margin:0;vertical-align:top}
+#about p{margin:1em 0 0;vertical-align:top}
 #paint{background:#feecd9 url("../img/bg.png")}
 .work{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:inline-block;padding:.625em;width:50%;float:left;}
 .work .container{background:#fff;border-radius:.325em;box-shadow:0 0 10px rgba(0,0,0,0.2);overflow:hidden;padding:.6em .6em 0;}
