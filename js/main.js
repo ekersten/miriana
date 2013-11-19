@@ -8,19 +8,15 @@
 
 	
 	$('.work .container a').fancybox({
-		maxWidth	: 300,
-		maxHeight	: 533,
-		fitToView	: false,
-		width		: '90%',
-		height		: '90%',
-		autoSize	: false,
+		maxWidth	: 830,
+		maxHeight	: 500,
+		fitToView	: true,
+		width		: '99%',
+		height		: '99%',
+		autoSize	: true,
+		mouseWheel	: false,
 		closeClick	: false,
-		openEffect	: 'none',
-		closeEffect	: 'none',
 		type		: 'ajax',
-		helpers 	: {
-            title	: null
-        }
 	});
 	
 
