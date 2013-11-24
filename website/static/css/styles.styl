@@ -1,0 +1,559 @@
+/* mixins */
+border-box()
+	-webkit-box-sizing border-box
+	-moz-box-sizing border-box
+	box-sizing border-box
+
+gradient(startColor, endColor)
+	background startColor
+	background -moz-linear-gradient(top,  startColor 0%, endColor 100%) /* FF3.6+ */
+	background -webkit-gradient(linear, left top, left bottom, color-stop(0%,startColor), color-stop(100%,endColor)) /* Chrome,Safari4+ */
+	background -webkit-linear-gradient(top,  startColor 0%,endColor 100%) /* Chrome10+,Safari5.1+ */
+	background -o-linear-gradient(top,  startColor 0%,endColor 100%) /* Opera 11.10+ */
+	background -ms-linear-gradient(top,  startColor 0%,endColor 100%) /* IE10+ */
+	background linear-gradient(to bottom,  startColor 0%,endColor 100%) /* W3C */
+
+
+
+/* fonts */
+@font-face {
+    font-family: 'DISCORegular';
+    src: url('../fonts/DISCO___-webfont.eot');
+    src: url('../fonts/DISCO___-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/DISCO___-webfont.woff') format('woff'),
+         url('../fonts/DISCO___-webfont.ttf') format('truetype'),
+         url('../fonts/DISCO___-webfont.svg#DISCORegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot');
+	src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf') format('truetype'),
+		url('../fonts/icomoon.woff') format('woff'),
+		url('../fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+/*
+.icon-brush:before {
+	content: "\e600";
+}
+.icon-mail:before {
+	content: "\e601";
+}
+.icon-house:before {
+	content: "\e602";
+}
+.icon-facebook:before {
+	content: "\e603";
+}
+.icon-skype:before {
+	content: "\e604";
+}
+.icon-twitter:before {
+	content: "\e605";
+}
+.icon-phone:before {
+	content: "\e607";
+}
+.icon-box:before {
+	content: "\e608";
+}
+.icon-pictures:before {
+	content: "\e609";
+}
+.icon-search:before {
+	content: "\e606";
+}
+.icon-user:before {
+	content: "\e60a";
+}
+.icon-arrow-up:before {
+	content: "\e60b";
+}
+*/
+
+
+/* variables */
+
+font_disco = 'DISCORegular', sans-serif
+
+color_gris_neutro = #999
+color_azul_oscuro = #3B4250
+color_verde = #68CAB6
+color_amarillo = #FBB168
+color_rosa = #E17695
+color_violeta = #A285C5
+
+/* styles */
+body
+	font 100%/1.5em 'Roboto', sans-serif
+	margin 0
+	min-width 310px
+
+footer
+	background color_azul_oscuro
+	color white
+	font-size 0.8em
+	padding 1.5em
+	text-align center
+	text-shadow rgba(0,0,0,0.5) 1px 1px 2px
+
+header
+	background color_azul_oscuro
+	overflow hidden
+	.logo
+	.text
+		margin-top 0.625em
+
+	.logo
+		float left
+		margin-left 0.625em
+		width 73px
+	
+	.text
+		color white
+		font-family font_disco
+		float left
+		margin-left 0.625em
+		position relative
+		top .9em
+
+		h1
+			font-size 2.5em
+			letter-spacing -.15em
+			margin 0
+		h2
+			font-size .8em
+			margin 0
+			padding-left .4em
+
+	nav
+		clear both
+		height 93px
+		line-height 93px
+		margin-top 90px
+
+		ul
+			margin 0
+			padding 0
+			width 100%
+
+			li
+				border-box()
+				display inline-block
+				list-style none
+				width 25%
+				border-left 1px solid white
+
+				a
+					color white
+					display block
+					text-align center
+					text-decoration none
+					text-shadow rgba(0,0,0,0.5) 1px 1px 2px
+				
+					.icon
+						font-family 'icomoon'
+						font-size 1.6em
+						color white
+
+
+					.label
+						display none
+
+				&.about
+					background color_verde
+					.icon:before
+						content "\e60a"
+				&.paint
+					background color_amarillo
+					.icon:before
+						content "\e609"
+				&.crafts
+					background color_rosa
+					.icon:before
+						content "\e608"
+				&.contact
+					background color_violeta
+					.icon:before
+						content "\e601"
+			
+				&:first-child
+					border-left none
+.section
+	position relative
+
+	&:before
+		content ""
+		position absolute
+		top 0
+		left 0
+		width 100%
+		height 30px
+		gradient(rgba(0,0,0,0.1), rgba(0,0,0,0))
+		z-index 1
+
+	&:after
+		content ""
+		position absolute
+		bottom 0
+		left 0
+		width 100%
+		height 30px
+		gradient(rgba(0,0,0,0), rgba(0,0,0,0.1))
+		z-index 1
+	
+	.top
+		background rgba(0,0,0,0.3)
+		color white
+		font-weight bold
+		padding .2em .6em
+		position absolute
+		right 1em
+		top 1em
+		text-decoration none
+		text-transform uppercase
+
+		transition background 0.3s ease
+
+		span
+			&:before
+				font-family 'icomoon'
+				content '\e60b'
+
+		&:hover
+			background rgba(0,0,0,0.5)
+
+
+	.wrapper
+		padding 1em
+		position relative
+		overflow hidden
+		z-index 2
+
+		h3
+			color rgba(0,0,0,0.6)
+			font-size 3em
+			font-weight bold
+			letter-spacing -0.04em
+			margin .1em 0 .45em
+			text-align left
+
+	&:first-child
+		border-top none
+
+
+/* section specific styles */
+#about
+	background lighten(color_verde, 85%) url("../img/bg.png")
+	.picture
+		display inline-block
+		float left
+		margin 0 1em 1em 0
+		vertical-align top
+		width 150px
+
+
+	p
+		margin 1em 0 0
+		vertical-align top
+
+#paint
+	background lighten(color_amarillo, 75%) url("../img/bg.png")
+
+.work
+	border-box()
+	display inline-block
+	padding 0.625em
+	width 50%
+	float left
+	
+	.container
+		background white
+		border-radius 0.325em
+		box-shadow 0 0 10px rgba(0,0,0,0.2)
+		overflow hidden
+		padding .6em .6em 0;
+		
+		a
+			color color_azul_oscuro
+			text-decoration none
+
+
+		img
+			display block
+			max-width 100%
+		
+		.name
+		.details
+			margin-top 0.2em
+			
+
+		.name
+			float left
+			font-weight bold
+			font-size 0.5em
+			text-transform uppercase
+
+		.details
+			float right
+			&:before
+				content "\e606"
+				font-family 'icomoon'
+
+
+#crafts
+	background lighten(color_rosa, 75%) url("../img/bg.png")
+
+#contact
+	background lighten(color_violeta, 55%) url("../img/bg.png")
+
+	form
+		p
+			label
+				display block
+
+			.field
+				background rgba(255,255,255,0.5)
+				border-box()
+				border-radius 0.25em
+				border 1px solid rgba(0,0,0,0.3)
+				display block
+				font-family 'Roboto', sans-serif
+				padding .3em
+				width 100%
+
+			.textarea
+				height 60px
+				resize none
+
+			
+			.submit
+				background color_violeta
+				border-radius 0.25em
+				border none
+				box-shadow 0 0.325em 0 0 darken(color_violeta, 20%)
+				color white
+				font-family 'Roboto', sans-serif
+				padding 1em 1.5em
+				text-transform uppercase
+				position relative
+
+				transition all 0.3s ease
+
+				&:active
+					box-shadow 0 0 0 0 darken(color_violeta, 20%)
+					top 0.325em
+
+				&:focus
+					outline none
+
+
+			&.required
+				label
+					&:after
+						content ' *'
+						font-weight bold
+						color darken(red, 10%)
+	
+	.other
+		ul
+			margin 0
+			padding 0
+
+			li
+				list-style none
+
+				a
+					color color_azul_oscuro
+					text-decoration none
+					font-weight bold
+
+					&:hover
+						text-decoration underline
+
+				&:before
+					color color_azul_oscuro
+					font-family 'icomoon'
+					font-size 1.1em
+					margin-right 0.5em
+					position relative
+					top 0.2em
+
+				
+				&.facebook:before
+					content '\e603'
+
+				&.twitter:before
+					content '\e605'
+
+				&.skype:before
+					content '\e604'
+
+				&.email:before
+					content '\e601'
+
+				&.tel:before
+					content '\e607'
+
+
+
+.fancybox-skin
+	.fancybox-item
+		&.fancybox-close
+			background url("../img/close.jpg") no-repeat top left
+			height 36px
+			right 6px 
+			top 6px
+			width 36px
+
+.fancybox-inner
+
+	h4
+		border-bottom 1px solid #ccc
+		font-size 1.6em
+		font-weight normal
+		margin 0 0 .5em
+		padding 0 0 0.5em
+	
+	.details
+
+		.item
+			margin-top 1em
+			
+			&:first-child
+				margin-top 0
+
+			h6
+				border-bottom 1px solid #ccc
+				font-size 0.7em
+				text-transform uppercase
+				margin 0
+			p
+				font-size .8em
+				margin 0
+
+	.picture
+		margin 0 0 1em 0
+		img
+			display block
+			max-width 100%;
+
+/* media queries */
+
+@media screen and (min-width: 400px)
+	
+	.work
+		.container
+			.name
+				font-size .7em
+
+
+
+@media screen and (min-width: 532px)
+
+	.work
+		width 33.3333%
+
+
+@media screen and (min-width: 560px)
+
+	#contact
+		.column
+			border-box()
+			float left
+			padding 1em
+			width 50%
+
+
+@media screen and (min-width: 720px)
+	
+	.fancybox-inner
+
+		.details
+			padding-left 1em
+		
+		.details
+		.picture
+			border-box()
+			float left
+			width 50%
+
+@media screen and (min-width: 750px)
+	
+	header
+		nav
+			clear none
+			line-height normal
+			margin 0
+			float right
+
+			ul
+				li
+					width auto
+					a
+						height 93px
+						position relative
+						width 93px
+						box-shadow none
+						transition box-shadow 0.3s ease
+
+						.icon
+						.label
+							left 0
+							position absolute
+							width 100%
+
+						.icon
+							display block
+							top 25px
+
+						.label
+							bottom 20px
+							display block
+							font-size .75em
+							text-transform uppercase
+
+						&:hover
+							box-shadow inset 0 0 30px rgba(0,0,0,0.3)
+
+	.section
+		.wrapper
+			h3
+				color rgba(0,0,0,0.3)
+				font-size 3em
+				font-weight bold
+				letter-spacing -0.08em
+				margin 0 0 0.4em
+				text-align left
+				transition color 0.3s ease
+		&:hover
+			.wrapper
+				h3
+					color rgba(0,0,0,0.5)
+
+@media screen and (min-width: 900px)
+	
+	.work
+		width 25%
+		.container
+			transition box-shadow 0.3s ease
+		&:hover
+			.container
+				box-shadow 0 0 10px rgba(0,0,0,0.45)
+
+@media screen and (min-width: 960px)
+
+	.wrapper
+		margin-left auto
+		margin-right auto
+		max-width 960px
+
+
+			
