@@ -1,18 +1,19 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="es">
 	<head>
 			<meta charset="utf-8"/>
 			<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 			<title>Miriana - Pintura &amp; Artesanías</title>
-			<link rel="stylesheet" href="css/normalize.css"/>
+			<link rel="stylesheet" href="{% static "css/normalize.css" %}"/>
 			<link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'/>
-			<link rel="stylesheet" href="css/styles.css"/>
-			<link rel="stylesheet" href="js/plugins/fancybox/jquery.fancybox.css"/>
+			<link rel="stylesheet" href="{% static "css/styles.css" %}"/>
+			<link rel="stylesheet" href="{% static "js/plugins/fancybox/jquery.fancybox.css" %}"/>
 
 	</head>
 	<body>
 		<header>
-			<img src="img/orquidea.png" class="logo"/>
+			<img src="{% static "img/orquidea.png" %}" class="logo"/>
 			<div class="text">
 				<h1>MIRIANA</h1>
 				<h2>PINTURA &amp; ARTEASENIAS</h2>
@@ -47,7 +48,7 @@
 			<div class="wrapper">
 				<a href="#" class="top"><span class="icon"></span></a>
 				<h3>Acerca de</h3>
-				<img src="img/miriana.jpg" class="picture" />
+				<img src="{% static "img/miriana.jpg" %}" class="picture" />
 				<p>Soy Miriana Kersten, nací en San Isidro, Provincia de Buenos Aires, allá por año 1956.  Si bien desde siempre me apasionó el dibujo y la pintura, fue sólo en el 2005, superando tabúes y mandatos familiares que comencé a dedicarme a su estudio y perfeccionamiento, esto fue en el taller de Doris Muller.  Siempre tratando de experimentar distintas técnicas y corrientes es que además de enamorarme de la naturaleza muerta y los paisajes descubrí el arte de las cajas rusas, y fue amor a primera vista.</p>
 				<p>La búsqueda nunca termina, siempre habrá algo nuevo y maravilloso aguardado a ser encontrado, espero compartirlo con todos Uds. a través es éste, mi lugar.</p>
 			</div>
@@ -56,131 +57,21 @@
 			<div class="wrapper">
 				<a href="#" class="top"><span class="icon"></span></a>
 				<h3>Pinturas</h3>
+				{% for painting in paintings %}
 				<div class="work">
 					<div class="container">
-						<a href="painting_details.html"><img src="img/painting.jpg" alt=""></a>
-						<a href="painting_details.html" class="name">Flor Violeta</a>
+						<a href="painting_details.html"><img src="{{ thumbnail(painting.image, '50x50') }}" alt="{{ painting.name|escape }}"></a>
+						<a href="painting_details.html" class="name">{{ painting.name }}</a>
 						<a href="painting_details.html" class="details"></a>
 					</div>
 				</div>
-				<div class="work">
-					<div class="container">
-						<a href="painting_details.html"><img src="img/painting.jpg" alt=""></a>
-						<a href="painting_details.html" class="name">Flor Violeta</a>
-						<a href="painting_details.html" class="details"></a>
-					</div>
-				</div>
-				<div class="work">
-					<div class="container">
-						<a href="painting_details.html"><img src="img/painting.jpg" alt=""></a>
-						<a href="painting_details.html" class="name">Flor Violeta</a>
-						<a href="painting_details.html" class="details"></a>
-					</div>
-				</div>
-				<div class="work">
-					<div class="container">
-						<a href="painting_details.html"><img src="img/painting.jpg" alt=""></a>
-						<a href="painting_details.html" class="name">Flor Violeta</a>
-						<a href="painting_details.html" class="details"></a>
-					</div>
-				</div>
-				<div class="work">
-					<div class="container">
-						<a href="painting_details.html"><img src="img/painting.jpg" alt=""></a>
-						<a href="painting_details.html" class="name">Flor Violeta</a>
-						<a href="painting_details.html" class="details"></a>
-					</div>
-				</div>
-				<div class="work">
-					<div class="container">
-						<a href="painting_details.html"><img src="img/painting.jpg" alt=""></a>
-						<a href="painting_details.html" class="name">Flor Violeta</a>
-						<a href="painting_details.html" class="details"></a>
-					</div>
-				</div>
-				<div class="work">
-					<div class="container">
-						<a href="painting_details.html"><img src="img/painting.jpg" alt=""></a>
-						<a href="painting_details.html" class="name">Flor Violeta</a>
-						<a href="painting_details.html" class="details"></a>
-					</div>
-				</div>
-				<div class="work">
-					<div class="container">
-						<a href="painting_details.html"><img src="img/painting.jpg" alt=""></a>
-						<a href="painting_details.html" class="name">Flor Violeta</a>
-						<a href="painting_details.html" class="details"></a>
-					</div>
-				</div>
-				<div class="work">
-					<div class="container">
-						<a href="painting_details.html"><img src="img/painting.jpg" alt=""></a>
-						<a href="painting_details.html" class="name">Flor Violeta</a>
-						<a href="painting_details.html" class="details"></a>
-					</div>
-				</div>
-				<div class="work">
-					<div class="container">
-						<a href="painting_details.html"><img src="img/painting.jpg" alt=""></a>
-						<a href="painting_details.html" class="name">Flor Violeta</a>
-						<a href="painting_details.html" class="details"></a>
-					</div>
-				</div>
-				<div class="work">
-					<div class="container">
-						<a href="painting_details.html"><img src="img/painting.jpg" alt=""></a>
-						<a href="painting_details.html" class="name">Flor Violeta</a>
-						<a href="painting_details.html" class="details"></a>
-					</div>
-				</div>
+				{% endfor %}
 			</div>
 		</section>
 		<section class="section" id="crafts">
 			<div class="wrapper">
 				<a href="#" class="top"><span class="icon"></span></a>
 				<h3>Artesanías</h3>
-				<div class="work">
-					<div class="container">
-						<a href="crafts_details.html?"><img src="img/craft.jpg" alt=""></a>
-						<a href="crafts_details.html?" class="name">Caja rusa 20x20x8</a>
-						<a href="crafts_details.html?" class="details"></a>
-					</div>
-				</div>
-				<div class="work">
-					<div class="container">
-						<a href="crafts_details.html?"><img src="img/craft.jpg" alt=""></a>
-						<a href="crafts_details.html?" class="name">Caja rusa 20x20x8</a>
-						<a href="crafts_details.html?" class="details"></a>
-					</div>
-				</div>
-				<div class="work">
-					<div class="container">
-						<a href="crafts_details.html?"><img src="img/craft.jpg" alt=""></a>
-						<a href="crafts_details.html?" class="name">Caja rusa 20x20x8</a>
-						<a href="crafts_details.html?" class="details"></a>
-					</div>
-				</div>
-				<div class="work">
-					<div class="container">
-						<a href="crafts_details.html?"><img src="img/craft.jpg" alt=""></a>
-						<a href="crafts_details.html?" class="name">Caja rusa 20x20x8</a>
-						<a href="crafts_details.html?" class="details"></a>
-					</div>
-				</div>
-				<div class="work">
-					<div class="container">
-						<a href="crafts_details.html?"><img src="img/craft.jpg" alt=""></a>
-						<a href="crafts_details.html?" class="name">Caja rusa 20x20x8</a>
-						<a href="crafts_details.html?" class="details"></a>
-					</div>
-				</div>
-				<div class="work">
-					<div class="container">
-						<a href="crafts_details.html?"><img src="img/craft.jpg" alt=""></a>
-						<a href="crafts_details.html?" class="name">Caja rusa 20x20x8</a>
-						<a href="crafts_details.html?" class="details"></a>
-					</div>
-				</div>
 				<div class="work">
 					<div class="container">
 						<a href="crafts_details.html?"><img src="img/craft.jpg" alt=""></a>
@@ -234,7 +125,7 @@
 			<p class="copyright">Copyright &copy; 2013 - Miriana Kersten</p>
 		</footer>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script src="js/plugins/fancybox/jquery.fancybox.pack.js"></script>
-		<script src="js/main.js"></script>
+		<script src="{% static "js/plugins/fancybox/jquery.fancybox.pack.js" %}"></script>
+		<script src="{% static "js/main.js" %}"></script>
 	</body>
 </html>
