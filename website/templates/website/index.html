@@ -59,10 +59,11 @@
 				<a href="#" class="top"><span class="icon"></span></a>
 				<h3>Pinturas</h3>
 				{% for painting in paintings %}
+				{% resizer painting.image "200x200" %}
 				<div class="work">
 					<div class="container">
 						<a href="painting_details.html">
-							{% resizer "holis" %}
+							<!-- aca va la imagen -->
 						</a>
 						<a href="painting_details.html" class="name">{{ painting.name }}</a>
 						<a href="painting_details.html" class="details"></a>
