@@ -60,12 +60,12 @@ WSGI_APPLICATION = 'miriana.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'miriana',
-        'USER': 'miriana_user',
-        'PASSWORD': 'miriana_pass',
+        'USER': 'root',
+        'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT': ''
+        'PORT': '3306'
     }
 }
 
