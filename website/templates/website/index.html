@@ -59,7 +59,7 @@
 				<a href="#" class="top"><span class="icon"></span></a>
 				<h3>Pinturas</h3>
 				{% for painting in paintings %}
-				{% resizer painting.image "200x200" %}
+				{% resizer painting.image "200x200" "crop" %}
 				<div class="work">
 					<div class="container">
 						<a href="painting_details.html">

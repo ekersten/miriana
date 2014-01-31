@@ -1,1 +1,3 @@
 *.pyc
+meida/*/
+media/*.*
