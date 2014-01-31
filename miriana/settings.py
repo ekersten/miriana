@@ -36,7 +36,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'south',
     'resizer',
     'website',
 )
@@ -62,8 +61,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'miriana',
-        'USER': 'root',
-        'PASSWORD': '',
+        'USER': 'miriana_user',
+        'PASSWORD': 'miriana_pass',
         'HOST': 'localhost',
         'PORT': '3306'
     }
