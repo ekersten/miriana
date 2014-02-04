@@ -12,6 +12,8 @@ def do_resizer(parser, token):
 		raise template.TemplateSyntaxError("%r tag requires a single argument" % token.contents.split()[0])
 	if not (format[0] == format[-1] and format[0] in ('"', "'")):
 		raise template.TemplateSyntaxError("%r tag's argument should be in quotes" % tag_name)
+	if not (mode[0] == mode[-1] and mode[0] in ('"', "'")):
+		raise template.TemplateSyntaxError("%r tag's argument should be in quotes" % tag_name)
 	return ResizerNode(image, format, mode)
 
 
@@ -19,11 +21,10 @@ class ResizerNode(template.Node):
 	def __init__(self, image, format, mode):
 		try:
 			self.image = template.Variable(image)
-			self.format_str = format[1:-1]
-			self.format = tuple(self.format_str.split('x'))
+			self.format= format[1:-1]
+			self.dimensions = {'width':int(self.format.split('x')[0]), 'height':int(self.format.split('x')[0]),}
 			self.path = os.path.join(settings.MEDIA_ROOT, 'resizer_cache')
-			
-			self.mode = mode
+			self.mode = mode[1:-1]
 
 			# create cache directoty
 			if not(os.path.exists(self.path) and os.path.isdir(self.path)):
@@ -34,16 +35,30 @@ class ResizerNode(template.Node):
 		
 
 	def render(self, context):
-		# check if file exists
-		img_obj = self.image.resolve(context)
 		
-		print os.path.basename(img_obj.name)
+		img_obj = self.image.resolve(context)
+		basename = os.path.basename(img_obj.name)
 
-		if (os.path.exists(img_obj.path)):
-			img = Image.open(img_obj.path)
-			nueva = img.resize(self.format, Image.ANTIALIAS)
-			nueva.save(os.path.join(self.path,'thumb_'+self.format_str+'_'+os.path.basename(img_obj.name)))
+		resized_name = self.get_name(basename, self.format, self.mode)
+		resized_path = os.path.join(self.path, resized_name)
 
-		return os.path.join(self.path,'thumb_'+os.path.basename(img_obj.name))
+		if (os.path.exists(resized_path) == False):
+			# check if file exists
+			if (os.path.exists(img_obj.path)):
+				img = Image.open(img_obj.path)
+				if (self.mode == 'crop'):
+					pass
+				else:
+					nueva = img.resize((self.dimensions['width'], self.dimensions['height']), Image.ANTIALIAS)
+					nueva.save(resized_path)
+
+			else:
+				raise template.TemplateSyntaxError("%r path does not exist" % img_obj.path)
+
+		# return the path from the MEDIA_URL on. Not the full OS path
+		return resized_path[resized_path.index(settings.MEDIA_URL):]
+
+	def get_name(self, name, format, mode):
+		return mode + '_' + format + '_' + name
 
 register.tag('resizer', do_resizer)
