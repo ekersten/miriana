@@ -59,12 +59,12 @@ WSGI_APPLICATION = 'miriana.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'miriana',
-        'USER': 'miriana_user',
-        'PASSWORD': 'miriana_pass',
+        'USER': 'miriana_db_user',
+        'PASSWORD': 'm1r14n4s1t3',
         'HOST': 'localhost',
-        'PORT': '3306'
+        'PORT': ''
     }
 }
 
@@ -85,6 +85,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
